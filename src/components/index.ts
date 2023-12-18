@@ -1,3 +1,4 @@
+export { Layout } from "./Layout";
 export { Menu } from "./Menu";
 export { TopBar } from "./TopBar";
 
