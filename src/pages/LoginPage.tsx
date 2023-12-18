@@ -19,7 +19,7 @@ export function LoginPage() {
 				if (status === "success") {
 					// console.log(location.state);
 					if (location?.state?.from) navigate(location.state.from);
-					else navigate("/main");
+					else navigate("/");
 				} else setLoginMessage(status);
 			}
 		);
