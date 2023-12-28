@@ -21,7 +21,7 @@ export const Layout = () => {
 					{fakeAuthProvider.isAuthenticated ? (
 						<>
 							<div>
-								<span>{t("title")}</span>
+								{/* <span>{t("title")}</span> */}
 								<span>Zalogowany jako: {fakeAuthProvider.username} </span>
 								<a style={{ marginLeft: "10px" }} onClick={onLogout} href="#">
 									(Wyloguj)
