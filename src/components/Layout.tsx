@@ -1,12 +1,10 @@
 import { useLocation, useNavigate, Link, Outlet } from "react-router-dom";
 import { fakeAuthProvider } from "../core/auth";
 import { DashboardPage } from "../pages";
-import { useTranslation } from "react-i18next";
 
 export const Layout = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
-	const { t } = useTranslation();
 
 	const onLogout = (event: { preventDefault: () => void }) => {
 		event.preventDefault();
@@ -21,7 +19,6 @@ export const Layout = () => {
 					{fakeAuthProvider.isAuthenticated ? (
 						<>
 							<div>
-								{/* <span>{t("title")}</span> */}
 								<span>Zalogowany jako: {fakeAuthProvider.username} </span>
 								<a style={{ marginLeft: "10px" }} onClick={onLogout} href="#">
 									(Wyloguj)
