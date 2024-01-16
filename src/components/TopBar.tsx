@@ -1,3 +1,3 @@
 export const TopBar = () => {
-	return <div>tu będzie topbar</div>;
+	return <div className="topbar"></div>;
 };

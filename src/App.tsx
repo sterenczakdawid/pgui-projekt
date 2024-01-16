@@ -17,34 +17,34 @@ export default function App() {
 				<Route
 					path="/"
 					element={
-						<ProtectedPath>
-							<Layout />
-						</ProtectedPath>
+						// <ProtectedPath>
+						<Layout />
+						// </ProtectedPath>
 					}
 				/>
 				<Route
 					path="/orders"
 					element={
-						<ProtectedPath>
-							<OrderPage />
-						</ProtectedPath>
+						// <ProtectedPath>
+						<OrderPage />
+						// </ProtectedPath>
 					}
 				/>
-				<Route path="/login" element={<LoginPage />} />
+				{/* <Route path="/login" element={<LoginPage />} /> */}
 			</Routes>
 		</BrowserRouter>
 	);
 }
 
-interface ProtectedPathProps {
-	children: React.ReactNode;
-}
+// interface ProtectedPathProps {
+// 	children: React.ReactNode;
+// }
 
-function ProtectedPath({ children }: ProtectedPathProps) {
-	const location = useLocation();
-	return fakeAuthProvider.isAuthenticated ? (
-		children
-	) : (
-		<Navigate to="/login" state={{ from: location.pathname }} />
-	);
-}
+// function ProtectedPath({ children }: ProtectedPathProps) {
+// 	const location = useLocation();
+// 	return fakeAuthProvider.isAuthenticated ? (
+// 		children
+// 	) : (
+// 		<Navigate to="/login" state={{ from: location.pathname }} />
+// 	);
+// }

@@ -1,3 +1,3 @@
 export const SalesAdviceWidget = () => {
-	return <div>tu bedzie widget porad sprzedażowych</div>;
+	return <div className="card">tu bedzie widget porad sprzedażowych</div>;
 };

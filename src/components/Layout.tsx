@@ -1,20 +1,25 @@
 import { useLocation, useNavigate, Link, Outlet } from "react-router-dom";
 import { fakeAuthProvider } from "../core/auth";
 import { DashboardPage } from "../pages";
+import { Menu, TopBar } from "../components";
 
 export const Layout = () => {
-	const location = useLocation();
-	const navigate = useNavigate();
+	// const location = useLocation();
+	// const navigate = useNavigate();
 
-	const onLogout = (event: { preventDefault: () => void }) => {
-		event.preventDefault();
-		fakeAuthProvider.signout(() => {
-			navigate("/login");
-		});
-	};
+	// const onLogout = (event: { preventDefault: () => void }) => {
+	// 	event.preventDefault();
+	// 	fakeAuthProvider.signout(() => {
+	// 		navigate("/login");
+	// 	});
+	// };
 	return (
-		<div>
-			<div>
+		<>
+			<TopBar />
+			<Menu />
+			<DashboardPage />
+
+			{/* <div>
 				<div>
 					{fakeAuthProvider.isAuthenticated ? (
 						<>
@@ -39,8 +44,8 @@ export const Layout = () => {
 				<div>
 					<DashboardPage />
 				</div>
-			</div>
-			<Outlet />
-		</div>
+			</div> */}
+			{/* <Outlet /> */}
+		</>
 	);
 };

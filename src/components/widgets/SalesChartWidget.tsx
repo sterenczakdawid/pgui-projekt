@@ -1,3 +1,3 @@
 export const SalesChartWidget = () => {
-	return <div>tu bedzie widget wykresu sprzedaży</div>;
+	return <div className="card">tu bedzie widget wykresu sprzedaży</div>;
 };

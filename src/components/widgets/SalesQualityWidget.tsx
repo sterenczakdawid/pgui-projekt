@@ -1,3 +1,3 @@
 export const SalesQualityWidget = () => {
-	return <div>tu bedzie widget jakości sprzedaży</div>;
+	return <div className="card">tu bedzie widget jakości sprzedaży</div>;
 };

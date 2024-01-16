@@ -1,3 +1,3 @@
 export const OrderWidget = () => {
-	return <div>tu bedzie widget zamówień</div>;
+	return <div className="card">tu bedzie widget zamówień</div>;
 };
