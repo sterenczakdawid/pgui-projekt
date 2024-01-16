@@ -2,8 +2,8 @@
 	height: 100vh;
 
 	display: grid;
-	grid-template-columns: 230px 1fr;
-	grid-template-rows: 60px 1fr;
+	grid-template-columns: 270px 1fr;
+	grid-template-rows: 80px 1fr;
 	grid-template-areas:
 		"side header"
 		"side main";
@@ -41,6 +41,8 @@
 .card {
 	background-color: #fff;
 	border-radius: 15px;
+	padding: 16px;
+	margin: 10px;
 }
 
 .card:nth-child(1) {
@@ -65,4 +67,16 @@
 
 .card:nth-child(6) {
 	grid-area: c6;
+}
+
+.card__title {
+	color: #CCCCCC;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 28px;
+}
+
+.order__tab {
+	padding: 10px;
+	margin: 10px;
 }

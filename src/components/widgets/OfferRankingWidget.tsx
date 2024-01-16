@@ -1,3 +1,5 @@
 export const OfferRankingWidget = () => {
-	return <div className="card">tu bedzie widget rankingu ofert</div>;
+	return <div className="card">
+		<h1 className="card__title">Ranking ofert</h1>
+	</div>;
 };

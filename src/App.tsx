@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { fakeAuthProvider } from "./core/auth";
-import { LoginPage, OrderPage } from "./pages";
+import { CustomerReviewsPage, LoginPage, OrderPage, SalesAdvicePage, SalesQualityPage } from "./pages";
 import { Layout } from "./components";
 
 export default function App() {
@@ -27,6 +27,30 @@ export default function App() {
 					element={
 						// <ProtectedPath>
 						<OrderPage />
+						// </ProtectedPath>
+					}
+				/>
+				<Route
+					path="/customer-reviews"
+					element={
+						// <ProtectedPath>
+						<CustomerReviewsPage />
+						// </ProtectedPath>
+					}
+				/>
+				<Route
+					path="/sales-advice"
+					element={
+						// <ProtectedPath>
+						<SalesAdvicePage />
+						// </ProtectedPath>
+					}
+				/>
+				<Route
+					path="/sales-quality"
+					element={
+						// <ProtectedPath>
+						<SalesQualityPage />
 						// </ProtectedPath>
 					}
 				/>

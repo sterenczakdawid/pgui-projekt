@@ -1,0 +1,8 @@
+.card__title__link {
+	display: flex;
+	justify-content: space-between;
+	color: #CCCCCC;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 28px;
+}

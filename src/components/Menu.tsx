@@ -23,9 +23,23 @@ export const Menu = () => {
 	};
 
 	return (
-		<div className="sidebar bg-[#5a57ff]">
-			<NavLink to="/orders" className="text-white absolute top-[500px]">
-				dupa
+		<div className="sidebar flex flex-col justify-around items-center bg-[#5a57ff]">
+			<h1 className="text-white font-bold text-4xl">Dashboard</h1>
+
+			<NavLink to="/orders" className="text-white">
+				Dashboard
+			</NavLink>
+			<NavLink to="/orders" className="text-white">
+				Zamówienia
+			</NavLink>
+			<NavLink to="/sales-quality" className="text-white">
+				Jakość sprzedaży
+			</NavLink>
+			<NavLink to="/customer-reviews" className="text-white">
+				Opinie kupujących
+			</NavLink>
+			<NavLink to="/sales-advice" className="text-white">
+				Porady sprzedażowe
 			</NavLink>
 			<h2>{theme}</h2>
 			<button onClick={() => dispatch(changeTheme())}>Change theme</button>

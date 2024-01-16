@@ -1,3 +1,7 @@
+import { TitleLink } from "../layout/TitleLink";
+
 export const CustomerReviewsWidget = () => {
-	return <div className="card">tu będzie widget opinii kupujących</div>;
+	return <div className="card">
+		<TitleLink title={"Opinie kupujących"} link={"/customer-reviews"}/>
+	</div>;
 };
