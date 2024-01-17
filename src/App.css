@@ -2,8 +2,8 @@
 	height: 100vh;
 
 	display: grid;
-	grid-template-columns: 270px 1fr;
-	grid-template-rows: 80px 1fr;
+	grid-template-columns: 230px 1fr;
+	grid-template-rows: 60px 1fr;
 	grid-template-areas:
 		"side header"
 		"side main";
@@ -42,7 +42,7 @@
 	background-color: #fff;
 	border-radius: 15px;
 	padding: 16px;
-	margin: 10px;
+	margin: 5px;
 }
 
 .card:nth-child(1) {
@@ -78,5 +78,40 @@
 
 .order__tab {
 	padding: 10px;
-	margin: 10px;
+	margin: 14px;
 }
+
+.quality__cat {
+	display: inline-block;
+	width: 30px; 
+	height: 30px; 
+	line-height: 30px; 
+	text-align: center;
+	border: 1px solid #5A57FF;
+	border-radius: 50%; 
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.line {
+	margin: 8px -8px 8px -8px;
+	border: 1px solid #5A57FF;
+}
+
+.outer-bar {
+	width: 40%; 
+	height: 12px;
+	background-color: #faf9ff; 
+	position: relative; 
+	border-radius: 50px;
+  }
+  
+  .inner-bar {
+	height: 100%; 
+	background: linear-gradient(90deg, #b2b0ff 0%, #5a57ff 100%); 
+	width: 70%; 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	border-radius: 50px;
+  }
