@@ -104,9 +104,9 @@
 	background-color: #faf9ff; 
 	position: relative; 
 	border-radius: 50px;
-  }
+}
   
-  .inner-bar {
+.inner-bar {
 	height: 100%; 
 	background: linear-gradient(90deg, #b2b0ff 0%, #5a57ff 100%); 
 	width: 70%; 
@@ -114,4 +114,38 @@
 	top: 0; 
 	left: 0; 
 	border-radius: 50px;
-  }
+}
+
+.circle {
+	display: inline-block;
+	width: 56px; 
+	height: 56px; 
+	margin: 15px;
+	border: 1px solid #5A57FF;
+	border-radius: 50%; 
+	background-color: #F2F2F2;
+}
+
+.ranking__button {
+	border: 1px solid #5A57FF;
+	background-color: #FFFFFF;
+	font-weight: 700;
+	font-size: 14px;
+	padding: 5px 10px 5px 10px;
+	margin: 10px 0 15px 0;
+}
+
+.active__ranking__button {
+	background-color: #5A57FF;
+	color: #FFFFFF;
+}
+
+.left {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.right {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
