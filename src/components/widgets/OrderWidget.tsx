@@ -1,8 +1,7 @@
+import { tabs } from "../../core/data/data";
 import { TitleLink } from "../layout/TitleLink";
 
 export const OrderWidget = () => {
-
-	const tabs = [{name: "Nieopłacone", quantity: 77}, {name: "Niewysłane", quantity: 22}, {name: "Zwroty", quantity: 13}];
 
 	return <div className="card">
 		<TitleLink title={"Zamówienia"} link={"/orders"}/>

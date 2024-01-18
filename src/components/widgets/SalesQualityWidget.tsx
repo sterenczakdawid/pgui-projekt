@@ -1,6 +1,5 @@
+import { aspects } from "../../core/data/data";
 import { TitleLink } from "../layout/TitleLink";
-
-const aspects = [{name: "Czas dostawy", rating: "4.0/5"}, {name: "Obsługa klienta", rating: "3.5/5"}, {name: "Jakość produktów", rating: "3.0/5"}];
 
 export const SalesQualityWidget = () => {
 	return <div className="card">

@@ -1,23 +1,5 @@
 import { useEffect, useState } from "react";
-
-interface Product {
-	name: string;
-	sold: number;
-	turnover: string;
-  }
-
-const products: Product[] = [
-	{name: "Produkt 1", sold: 8, turnover: "222 zł"}, 
-	{name: "Produkt 2", sold: 10, turnover: "135 zł"}, 
-	{name: "Produkt 3", sold: 2, turnover: "65 zł"}, 
-	{name: "Produkt 4", sold: 5, turnover: "180 zł"}, 
-	{name: "Produkt 5", sold: 12, turnover: "360 zł"},
-	{name: "Produkt 6", sold: 3, turnover: "30 zł"}, 
-	{name: "Produkt 7", sold: 15, turnover: "495 zł"}, 
-	{name: "Produkt 8", sold: 21, turnover: "840 zł"}, 
-	{name: "Produkt 9", sold: 6, turnover: "110 zł"}, 
-	{name: "Produkt 10", sold: 17, turnover: "570 zł"},
-];
+import { Product, products } from "../../core/data/data";
 
 export const OfferRankingWidget = () => {
 	const [activeButton, setActiveButton] = useState('mostSold');
@@ -27,9 +9,21 @@ export const OfferRankingWidget = () => {
 		const sortedProducts = [...products];
 
 		if (type === 'mostSold') {
-			sortedProducts.sort((a, b) => b.sold - a.sold);
+			sortedProducts.sort((a, b) => {
+				if (b.sold !== a.sold) {
+				return b.sold - a.sold; 
+				} else {
+				return b.turnover - a.turnover;
+				}
+			});
 		} else if (type === 'leastSold') {
-			sortedProducts.sort((a, b) => a.sold - b.sold);
+			sortedProducts.sort((a, b) => {
+				if (a.sold !== b.sold) {
+				return a.sold - b.sold;
+				} else {
+				return b.views - a.views;
+				}
+			});
 		}
 
 		setActiveButton(type);
@@ -64,12 +58,18 @@ export const OfferRankingWidget = () => {
 						<span className="circle"></span>
 						<div className="flex flex-col" key={idx}>
 							<span className="font-bold text-xl">{res.name}</span>
-							<span className="text-sm">Sprzedanych sztuk: <b>{res.sold}</b></span>
-							<span className="text-sm">Obrót: <b>{res.turnover}</b></span>
+							<span className="text-sm">Sprzedane sztuki: <b>{res.sold}</b></span>
+							<span className="text-sm">
+								{activeButton === 'mostSold'
+									? <>Obrót: <b>{res.turnover} zł</b></>
+									: <>Unikalne wyświetlenia: <b>{res.views}</b></>
+								}
+							</span>
 						</div>
 					</div>
 				))
 			}		
+			<span>{visibleProducts.length === 0 ? <>Nie ma żadnych ofert</> : ''}</span>
 		</div>
 	</div>;
 };
