@@ -1,7 +1,13 @@
-import { aspects } from "../../core/data/data";
+import { useSelector } from "react-redux";
+import { shops } from "../../core/constants/shop.const";
 import { TitleLink } from "../layout/TitleLink";
+import { RootState } from "../../core/store/store";
 
 export const SalesQualityWidget = () => {
+	const shopId = useSelector((state:RootState) => state.globalSettings.user.currentShop);
+	const aspects = shops[shopId-1].aspects;
+
+
 	return <div className="card">
 		<TitleLink title={"Jakość sprzedaży"} link={"/sales-quality"}/>
 		<div className="flex p-2.5 flex-col">

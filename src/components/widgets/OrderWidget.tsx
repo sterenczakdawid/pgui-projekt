@@ -1,13 +1,18 @@
-import { tabs } from "../../core/data/data";
+// import { tabs } from "../../core/constants/products.const";
+import { useSelector } from "react-redux";
 import { TitleLink } from "../layout/TitleLink";
+import { RootState } from "../../core/store/store";
+import { shops } from "../../core/constants/shop.const";
 
 export const OrderWidget = () => {
+	const shopId = useSelector((state:RootState) => state.globalSettings.user.currentShop);
+	const orders = shops[shopId-1].orders;
 
 	return <div className="card">
 		<TitleLink title={"Zamówienia"} link={"/orders"}/>
 		<div className="mt-10">
 			{
-				tabs.map((res, idx)=>(
+				orders.map((res, idx)=>(
 					<div className="order__tab flex justify-between" key={idx}>
 						<span>{res.name}</span>
 						<div className="flex justify-evenly space-x-8">

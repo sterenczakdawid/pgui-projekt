@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
-import { Product, products } from "../../core/data/data";
+import { Product } from "../../core/constants/products.const";
+import { RootState } from "../../core/store/store";
+import { useSelector } from "react-redux";
+import { shops } from "../../core/constants/shop.const";
 
 export const OfferRankingWidget = () => {
 	const [activeButton, setActiveButton] = useState('mostSold');
 	const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
+	const shopId = useSelector((state:RootState) => state.globalSettings.user.currentShop);
+	const products = shops[shopId-1].products;
 
 	const handleSort = (type: string) => {
 		const sortedProducts = [...products];
@@ -32,7 +37,7 @@ export const OfferRankingWidget = () => {
 
 	useEffect(() => {
 		handleSort("mostSold");
-	}, []);
+	}, [products]);
 
 	return <div className="card">
 		<h1 className="card__title">Ranking ofert</h1>
