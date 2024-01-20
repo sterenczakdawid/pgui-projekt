@@ -15,7 +15,7 @@ export const TopBar = () => {
 		}
 	};
 
-	return <div className="topbar flex justify-end gap-4">
+	return <div className="topbar flex justify-end gap-4 border-b-2 border-b-[#5a57ff] z-[1]">
 		<select onChange={changeShopDisplayed} value={user.currentShop}>
 			<option value="">Wybierz opcję</option>
 			{ownedShops.map((shopId) => (

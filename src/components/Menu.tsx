@@ -23,26 +23,42 @@ export const Menu = () => {
 	};
 
 	return (
-		<div className="sidebar flex flex-col justify-around items-center bg-[#5a57ff]">
-			<h1 className="text-white font-bold text-4xl">Dashboard</h1>
-
-			<NavLink to="/orders" className="text-white">
+		<div className="sidebar flex flex-col items-center bg-[#5a57ff] z-[2]">
+			<h1 className="text-white font-bold text-4xl leading-[60px]">
 				Dashboard
-			</NavLink>
-			<NavLink to="/orders" className="text-white">
-				Zamówienia
-			</NavLink>
-			<NavLink to="/sales-quality" className="text-white">
-				Jakość sprzedaży
-			</NavLink>
-			<NavLink to="/customer-reviews" className="text-white">
-				Opinie kupujących
-			</NavLink>
-			<NavLink to="/sales-advice" className="text-white">
-				Porady sprzedażowe
-			</NavLink>
+			</h1>
+			<div className="flex flex-col items-center justify-center w-full my-5 text-sm">
+				<NavLink
+					to="/"
+					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
+					Dashboard
+				</NavLink>
+				<NavLink
+					to="/orders"
+					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
+					Zamówienia
+				</NavLink>
+				<NavLink
+					to="/sales-quality"
+					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
+					Jakość sprzedaży
+				</NavLink>
+				<NavLink
+					to="/customer-reviews"
+					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
+					Opinie kupujących
+				</NavLink>
+				<NavLink
+					to="/sales-advice"
+					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
+					Porady sprzedażowe
+				</NavLink>
+			</div>
 			<h2>{theme}</h2>
 			<button onClick={() => dispatch(changeTheme())}>Change theme</button>
+			<button className="text-white text-center h-[72px] leading-[72px] w-full">
+				Wyloguj
+			</button>
 		</div>
 	);
 };
