@@ -1,6 +1,7 @@
 import { Aspect, aspects1, aspects2, aspects3, aspects4, aspects5 } from "./aspects.const";
 import { Order, orders1, orders2, orders3, orders4, orders5 } from "./orders.const";
 import { Product, products1, products2, products3, products4, products5 } from "./products.const";
+import { Review, reviews1, reviews2, reviews3, reviews4, reviews5 } from "./reviews.const";
 
 
 export interface Shop {
@@ -10,7 +11,7 @@ export interface Shop {
     orders: Order[];
     name: string;
     password: string;
-    // opinions: Opinion[];
+    reviews: Review[];
 }
 
 export const shop1: Shop = {
@@ -19,7 +20,8 @@ export const shop1: Shop = {
     aspects: aspects1,
     orders: orders1,
     name: "shop1",
-    password: "shop1"
+    password: "shop1",
+    reviews: reviews1
 }
 
 export const shop2: Shop = {
@@ -28,7 +30,8 @@ export const shop2: Shop = {
     aspects: aspects2,
     orders: orders2,
     name: "shop2",
-    password: "shop2"
+    password: "shop2",
+    reviews: reviews2
 }
 
 export const shop3: Shop = {
@@ -37,7 +40,8 @@ export const shop3: Shop = {
     aspects: aspects3,
     orders: orders3,
     name: "shop3",
-    password: "shop3"
+    password: "shop3",
+    reviews: reviews3
 }
 
 export const shop4: Shop = {
@@ -46,7 +50,8 @@ export const shop4: Shop = {
     aspects: aspects4,
     orders: orders4,
     name: "shop4",
-    password: "shop4"
+    password: "shop4",
+    reviews: reviews4
 }
 
 export const shop5: Shop = {
@@ -55,7 +60,8 @@ export const shop5: Shop = {
     aspects: aspects5,
     orders: orders5,
     name: "shop5",
-    password: "shop5"
+    password: "shop5",
+    reviews: reviews5
 }
 
 export const shops: Shop[] = [
