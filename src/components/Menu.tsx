@@ -3,12 +3,16 @@ import { RootState } from "../core/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from "../core/store/appSettingsSlice";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const Menu = () => {
-	const [activeButton, setActiveButton] = useState("light");
+	const [activeThemeButton, setActiveThemeButton] = useState("light");
+	const [activeLangButton, setActiveLangButton] = useState("en");
 	const theme = useSelector((state: RootState) => state.globalSettings.theme);
 	const dispatch = useDispatch();
 	const isFirstRender = useRef(true);
+	const { t } = useTranslation();
+	const { i18n } = useTranslation();
 
 	useEffect(() => {
 		if (isFirstRender.current) {
@@ -18,9 +22,15 @@ export const Menu = () => {
 		updateBodyClass(theme);
 	}, [theme]);
 
-	const handleThemeChange = (theme: string) => {
-		dispatch(changeTheme());
-		setActiveButton(theme);
+	const handleThemeChange = (theme: "light" | "dark") => {
+		dispatch(changeTheme(theme));
+		setActiveThemeButton(theme);
+	};
+
+
+	const changeLanguage = (language: string) => {
+		i18n.changeLanguage(language);
+		setActiveLangButton(language);
 	};
 
 	const updateBodyClass = (newTheme: string) => {
@@ -38,55 +48,71 @@ export const Menu = () => {
 	return (
 		<div className="sidebar flex flex-col items-center bg-[#5a57ff] z-[2]">
 			<h1 className="text-white font-bold text-4xl leading-[60px]">
-				Dashboard
+				{t("Dashboard")}
 			</h1>
 			<div className="flex flex-col items-center justify-center w-full my-5 text-sm">
 				<NavLink
 					to="/"
 					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
-					Dashboard
+					{t("Dashboard")}
 				</NavLink>
 				<NavLink
 					to="/orders"
 					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
-					Zamówienia
+					{t("Orders")}
 				</NavLink>
 				<NavLink
 					to="/sales-quality"
 					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
-					Jakość sprzedaży
+					{t("Quality")}
 				</NavLink>
 				<NavLink
 					to="/customer-reviews"
 					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
-					Opinie kupujących
+					{t("Opinions")}
 				</NavLink>
 				<NavLink
 					to="/sales-advice"
 					className="text-white h-[72px] leading-[72px] w-[70%] text-left">
-					Porady sprzedażowe
+					{t("Advice")}
 				</NavLink>
 			</div>
 			<div>
 				<button
 					className={`left ranking__button border-white ${
-						activeButton === "dark" ? "active__theme__button" : ""
+						activeThemeButton === "dark" ? "active__theme__button" : ""
 					}`}
 					onClick={() => handleThemeChange("dark")}>
 					🌑
 				</button>
 				<button
 					className={`right ranking__button border-white ${
-						activeButton === "light" ? "active__theme__button" : ""
+						activeThemeButton === "light" ? "active__theme__button" : ""
 					}`}
 					onClick={() => handleThemeChange("light")}>
 					☀️
 				</button>
 			</div>
 			<h2>{theme}</h2>
+			<div>
+				<button
+					className={`left ranking__button border-white ${
+						activeLangButton === "en" ? "active__theme__button" : ""
+					}`}
+					onClick={() => changeLanguage("en")}>
+					🇬🇧
+				</button>
+				<button
+					className={`right ranking__button border-white ${
+						activeLangButton === "pl" ? "active__theme__button" : ""
+					}`}
+					onClick={() => changeLanguage("pl")}>
+					🇵🇱
+				</button>
+			</div>
 			{/* <button onClick={() => dispatch(changeTheme())}>Change theme</button> */}
 			<button className="text-white text-center h-[72px] leading-[72px] w-full">
-				Wyloguj
+			{t("Logout")}
 			</button>
 		</div>
 	);

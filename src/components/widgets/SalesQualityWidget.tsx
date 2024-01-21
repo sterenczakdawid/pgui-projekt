@@ -2,29 +2,32 @@ import { useSelector } from "react-redux";
 import { shops } from "../../core/constants/shop.const";
 import { TitleLink } from "../layout/TitleLink";
 import { RootState } from "../../core/store/store";
+import { useTranslation } from "react-i18next";
 
 export const SalesQualityWidget = () => {
 	const shopId = useSelector((state:RootState) => state.globalSettings.user.currentShop);
 	const aspects = shops[shopId-1].aspects;
+	const { t } = useTranslation();
 
+	const translations = ["Shipping", "CustomerService", "ProductsQuality", "ReturnAbility", "Communication", "Price"];
 
 	return <div className="card">
-		<TitleLink title={"Jakość sprzedaży"} link={"/sales-quality"}/>
+		<TitleLink title={t("Quality")} link={"/sales-quality"}/>
 		<div className="flex p-2.5 flex-col">
 			<div className="flex justify-between mt-2 items-center space-x-8">
-				<span className="text-sm">Kategoria jakości</span>
+				<span className="text-sm">{t("QualityCat")}</span>
 				<span className="quality__cat">C</span>
 			</div>
 			<div className="flex justify-between mt-2 items-center space-x-8">
-				<span className="text-sm">Ocena jakości</span>
+				<span className="text-sm">{t("QualityRating")}</span>
 				<span className="font-bold">21/30</span>
 			</div>
 			<hr className="line" />
-			<span className="text-center mb-2">Najgorzej oceniane aspekty:</span>
+			<span className="text-center mb-2">{t("WorstAspects")}:</span>
 			{
 				aspects.map((res, idx)=>(
 					<div className="mt-3 flex justify-between items-center" key={idx}>
-						<span className="w-40">{res.name}</span>
+						<span className="w-40">{t(translations[(idx + shopId) % 6])}</span>
 						<div className="outer-bar">
 							<div className="inner-bar"></div>
 						</div>

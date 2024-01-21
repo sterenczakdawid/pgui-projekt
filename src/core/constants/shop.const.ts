@@ -9,8 +9,6 @@ export interface Shop {
     products: Product[];
     aspects: Aspect[];
     orders: Order[];
-    name: string;
-    password: string;
     reviews: Review[];
 }
 
@@ -19,8 +17,6 @@ export const shop1: Shop = {
     products: products1,
     aspects: aspects1,
     orders: orders1,
-    name: "shop1",
-    password: "shop1",
     reviews: reviews1
 }
 
@@ -29,8 +25,6 @@ export const shop2: Shop = {
     products: products2,
     aspects: aspects2,
     orders: orders2,
-    name: "shop2",
-    password: "shop2",
     reviews: reviews2
 }
 
@@ -39,8 +33,6 @@ export const shop3: Shop = {
     products: products3,
     aspects: aspects3,
     orders: orders3,
-    name: "shop3",
-    password: "shop3",
     reviews: reviews3
 }
 
@@ -49,8 +41,6 @@ export const shop4: Shop = {
     products: products4,
     aspects: aspects4,
     orders: orders4,
-    name: "shop4",
-    password: "shop4",
     reviews: reviews4
 }
 
@@ -59,8 +49,6 @@ export const shop5: Shop = {
     products: products5,
     aspects: aspects5,
     orders: orders5,
-    name: "shop5",
-    password: "shop5",
     reviews: reviews5
 }
 

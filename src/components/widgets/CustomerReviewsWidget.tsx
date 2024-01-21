@@ -4,6 +4,7 @@ import { RootState } from "../../core/store/store";
 import { useSelector } from "react-redux";
 import { shops } from "../../core/constants/shop.const";
 import { Review } from "../../core/constants/reviews.const";
+import { useTranslation } from "react-i18next";
 
 export const CustomerReviewsWidget = () => {
 	const [activeButton, setActiveButton] = useState("all");
@@ -13,6 +14,7 @@ export const CustomerReviewsWidget = () => {
 	);
 	const theme = useSelector((state: RootState) => state.globalSettings.theme);
 	const reviews = shops[shopId - 1].reviews;
+	const { t } = useTranslation();
 
 	const handleSort = (type: string) => {
 		const sortedReviews = [...reviews];
@@ -53,24 +55,24 @@ export const CustomerReviewsWidget = () => {
 
 	return (
 		<div className="card">
-			<TitleLink title={"Opinie kupujących"} link={"/customer-reviews"} />
+			<TitleLink title={t("Opinions")} link={"/customer-reviews"} />
 			<div className="flex p-2.5 items-center justify-center">
-				<span className="text-sm m-1 font-bold">Pokaż: </span>
+				<span className="text-sm m-1 font-bold">{t("Show")}: </span>
 				<div>
 					<button
 						className={`left ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'all' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'all' ? "active__ranking__button" : ""} transition duration-300 ease-linear`}
 						onClick={() => handleSort("all")}>
-						wszystkie
+						{t("All")}
 					</button>
 					<button
 						className={`ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'positive' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'positive' ? "active__ranking__button" : ""} transition duration-300 ease-linear`}
 						onClick={() => handleSort("positive")}>
-						pozytywne
+						{t("Positive")}
 					</button>
 					<button
 						className={`right ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'negative' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'negative' ? "active__ranking__button" : ""} transition duration-300 ease-linear`}
 						onClick={() => handleSort("negative")}>
-						negatywne
+						{t("Negative")}
 					</button>
 				</div>
 			</div>
