@@ -23,13 +23,13 @@ export const SalesQualityWidget = () => {
 			<span className="text-center mb-2">Najgorzej oceniane aspekty:</span>
 			{
 				aspects.map((res, idx)=>(
-					<div className="mt-3 flex justify-between" key={idx}>
+					<div className="mt-3 flex justify-between items-center" key={idx}>
 						<span className="w-40">{res.name}</span>
 						<div className="outer-bar">
 							<div className="inner-bar"></div>
 						</div>
 						<div className="flex justify-evenly space-x-8">
-							<span className="font-bold text-sm">{res.rating}</span>
+							<span className="font-bold text-sm mx-2">{res.rating}</span>
 						</div>						
 					</div>
 				))

@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RootState } from "../core/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from "../core/store/appSettingsSlice";
 import { NavLink } from "react-router-dom";
 
 export const Menu = () => {
+	const [activeButton, setActiveButton] = useState("light");
 	const theme = useSelector((state: RootState) => state.globalSettings.theme);
 	const dispatch = useDispatch();
 	const isFirstRender = useRef(true);
@@ -17,9 +18,21 @@ export const Menu = () => {
 		updateBodyClass(theme);
 	}, [theme]);
 
+	const handleThemeChange = (theme: string) => {
+		dispatch(changeTheme());
+		setActiveButton(theme);
+	};
+
 	const updateBodyClass = (newTheme: string) => {
 		document.body.classList.remove(`body-light-theme`, `body-dark-theme`);
 		document.body.classList.add(`body-${newTheme}-theme`);
+		document.querySelectorAll(".card").forEach((cardElement) => {
+			// Usuń istniejące klasy elementu
+			cardElement.classList.remove(`card-light-theme`, `card-dark-theme`);
+
+			// Dodaj nową klasę do elementu
+			cardElement.classList.add(`card-${newTheme}-theme`);
+		});
 	};
 
 	return (
@@ -54,8 +67,24 @@ export const Menu = () => {
 					Porady sprzedażowe
 				</NavLink>
 			</div>
+			<div>
+				<button
+					className={`left ranking__button border-white ${
+						activeButton === "dark" ? "active__theme__button" : ""
+					}`}
+					onClick={() => handleThemeChange("dark")}>
+					🌑
+				</button>
+				<button
+					className={`right ranking__button border-white ${
+						activeButton === "light" ? "active__theme__button" : ""
+					}`}
+					onClick={() => handleThemeChange("light")}>
+					☀️
+				</button>
+			</div>
 			<h2>{theme}</h2>
-			<button onClick={() => dispatch(changeTheme())}>Change theme</button>
+			{/* <button onClick={() => dispatch(changeTheme())}>Change theme</button> */}
 			<button className="text-white text-center h-[72px] leading-[72px] w-full">
 				Wyloguj
 			</button>

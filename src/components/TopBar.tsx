@@ -4,6 +4,7 @@ import { changeShop } from "../core/store/appSettingsSlice";
 
 export const TopBar = () => {
 	const user = useSelector((state: RootState) => state.globalSettings.user);
+	const theme = useSelector((state: RootState) => state.globalSettings.theme);
 	const ownedShops = user.ownedShops;
 	const dispatch = useDispatch();
 
@@ -15,8 +16,8 @@ export const TopBar = () => {
 	};
 
 	return (
-		<div className="topbar flex justify-between items-center gap-4 border-b-2 border-b-[#5a57ff] z-[1]">
-			<select className="font-bold rounded-3xl h-[50px] border-[#5a57ff] ml-[260px]" onChange={changeShopDisplayed} value={user.currentShop}>
+		<div className={`${theme === "dark" ? 'bg-[#353535]' : 'bg-white'} topbar flex justify-between items-center gap-4 border-b-2 border-b-[#5a57ff] z-[1]`}>
+			<select className={`${theme === "dark" ? 'bg-[#353535]' : 'bg-white'} font-bold rounded-3xl h-[50px] border-[#5a57ff] ml-[260px]`} onChange={changeShopDisplayed} value={user.currentShop}>
 				<option value="">Wybierz opcję</option>
 				{ownedShops.map((shopId) => (
 					<option key={shopId} value={shopId}>
