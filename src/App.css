@@ -21,6 +21,8 @@
 	text-align: right;
 
 	grid-area: header;
+
+	transition: background-color 0.3s linear, color 0.3s linear;
 }
 
 .sidebar {
@@ -53,6 +55,7 @@
 	border-radius: 15px;
 	padding: 16px;
 	margin: 5px;
+	transition: background-color 0.3s linear, color 0.3s linear;
 }
 
 .card:nth-child(1) {

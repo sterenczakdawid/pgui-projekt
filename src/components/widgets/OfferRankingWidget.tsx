@@ -49,12 +49,12 @@ export const OfferRankingWidget = () => {
 				<span className="text-sm m-1">Wyświetl produkty kupowane</span>
 				<div>
 					<button
-						className={`left ranking__button ${theme === "dark" ? activeButton === 'mostSold' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'mostSold' ? 'active__ranking__button' : ""}`}
+						className={`left ranking__button ${theme === "dark" ? activeButton === 'mostSold' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'mostSold' ? 'active__ranking__button' : ""} transition duration-300 ease-linear`}
 						onClick={() => handleSort("mostSold")}>
 						najczęściej
 					</button>
 					<button
-						className={`right ranking__button ${theme === "dark" ? activeButton === 'leastSold' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'leastSold' ? "active__ranking__button" : ""}`}
+						className={`right ranking__button ${theme === "dark" ? activeButton === 'leastSold' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'leastSold' ? "active__ranking__button" : ""} transition duration-300 ease-linear`}
 						onClick={() => handleSort("leastSold")}>
 						najrzadziej
 					</button>

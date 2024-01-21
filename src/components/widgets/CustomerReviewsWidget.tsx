@@ -58,17 +58,17 @@ export const CustomerReviewsWidget = () => {
 				<span className="text-sm m-1 font-bold">Pokaż: </span>
 				<div>
 					<button
-						className={`left ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'all' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'all' ? "active__ranking__button" : ""}`}
+						className={`left ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'all' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'all' ? "active__ranking__button" : ""} transition duration-300 ease-linear`}
 						onClick={() => handleSort("all")}>
 						wszystkie
 					</button>
 					<button
-						className={`ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'positive' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'positive' ? "active__ranking__button" : ""}`}
+						className={`ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'positive' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'positive' ? "active__ranking__button" : ""} transition duration-300 ease-linear`}
 						onClick={() => handleSort("positive")}>
 						pozytywne
 					</button>
 					<button
-						className={`right ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'negative' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'negative' ? "active__ranking__button" : ""}`}
+						className={`right ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'negative' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'negative' ? "active__ranking__button" : ""} transition duration-300 ease-linear`}
 						onClick={() => handleSort("negative")}>
 						negatywne
 					</button>
@@ -79,7 +79,7 @@ export const CustomerReviewsWidget = () => {
 					<div className="flex justify-between px-2">
 						<span className="text-m text-left w-[25%]">{res.user}</span>
 						<span className="text-m text-left w-[15%]">{res.rating}</span>
-						<span className={`text-m text-left w-[60%] rounded-md px-1 ${theme === "dark" ? "bg-[#353535]" : "bg-[#faf9ff]"}`}>
+						<span className={`text-m text-left w-[60%] rounded-md px-1 ${theme === "dark" ? "bg-[#353535]" : "bg-[#faf9ff]"} transition duration-300 ease-linear`}>
 							{res.text}
 						</span>
 					</div>

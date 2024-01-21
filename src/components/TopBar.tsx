@@ -17,7 +17,7 @@ export const TopBar = () => {
 
 	return (
 		<div className={`${theme === "dark" ? 'bg-[#353535]' : 'bg-white'} topbar flex justify-between items-center gap-4 border-b-2 border-b-[#5a57ff] z-[1]`}>
-			<select className={`${theme === "dark" ? 'bg-[#353535]' : 'bg-white'} font-bold rounded-3xl h-[50px] border-[#5a57ff] ml-[260px]`} onChange={changeShopDisplayed} value={user.currentShop}>
+			<select className={`${theme === "dark" ? 'bg-[#353535]' : 'bg-white'} font-bold rounded-3xl h-[50px] border-[#5a57ff] ml-[260px] transition duration-300 ease-linear`} onChange={changeShopDisplayed} value={user.currentShop}>
 				<option value="">Wybierz opcję</option>
 				{ownedShops.map((shopId) => (
 					<option key={shopId} value={shopId}>
