@@ -84,7 +84,7 @@ export const OfferRankingWidget = () => {
 					</div>
 				))}
 				<span>
-					{visibleProducts.length === 0 ? <>Nie ma żadnych ofert</> : ""}
+					{visibleProducts.length === 0 ? <>{t("NoOffers")}</> : ""}
 				</span>
 			</div>
 		</div>

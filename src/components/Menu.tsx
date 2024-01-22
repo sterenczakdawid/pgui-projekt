@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { RootState } from "../core/store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { changeTheme } from "../core/store/appSettingsSlice";
+import { changeLang, changeTheme } from "../core/store/appSettingsSlice";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -28,9 +28,10 @@ export const Menu = () => {
 	};
 
 
-	const changeLanguage = (language: string) => {
+	const changeLanguage = (language: 'pl'|'en') => {
 		i18n.changeLanguage(language);
 		setActiveLangButton(language);
+		dispatch(changeLang(language))
 	};
 
 	const updateBodyClass = (newTheme: string) => {

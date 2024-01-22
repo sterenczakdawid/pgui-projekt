@@ -13,30 +13,35 @@ export const SalesQualityWidget = () => {
 
 	return <div className="card">
 		<TitleLink title={t("Quality")} link={"/sales-quality"}/>
-		<div className="flex p-2.5 flex-col">
-			<div className="flex justify-between mt-2 items-center space-x-8">
-				<span className="text-sm">{t("QualityCat")}</span>
-				<span className="quality__cat">C</span>
-			</div>
-			<div className="flex justify-between mt-2 items-center space-x-8">
-				<span className="text-sm">{t("QualityRating")}</span>
-				<span className="font-bold">21/30</span>
-			</div>
-			<hr className="line" />
-			<span className="text-center mb-2">{t("WorstAspects")}:</span>
-			{
-				aspects.map((res, idx)=>(
-					<div className="mt-3 flex justify-between items-center" key={idx}>
-						<span className="w-40">{t(translations[(idx + shopId) % 6])}</span>
-						<div className="outer-bar">
-							<div className="inner-bar"></div>
-						</div>
-						<div className="flex justify-evenly space-x-8">
-							<span className="font-bold text-sm mx-2">{res.rating}</span>
-						</div>						
+		{
+			aspects.length === 0 ? <>{t("NoQuality")}</> : 
+			<>
+				<div className="flex p-2.5 flex-col">
+					<div className="flex justify-between mt-2 items-center space-x-8">
+						<span className="text-sm">{t("QualityCat")}</span>
+						<span className="quality__cat">C</span>
 					</div>
-				))
-			}
-		</div>
+					<div className="flex justify-between mt-2 items-center space-x-8">
+						<span className="text-sm">{t("QualityRating")}</span>
+						<span className="font-bold">21/30</span>
+					</div>
+					<hr className="line" />
+					<span className="text-center mb-2">{t("WorstAspects")}:</span>
+					{
+						aspects.map((res, idx)=>(
+							<div className="mt-3 flex justify-between items-center" key={idx}>
+								<span className="w-40">{t(translations[(idx + shopId) % 6])}</span>
+								<div className="outer-bar">
+									<div className="inner-bar"></div>
+								</div>
+								<div className="flex justify-evenly space-x-8">
+									<span className="font-bold text-sm mx-2">{res.rating}</span>
+								</div>						
+							</div>
+						))
+					}
+				</div>
+			</>
+		}
 	</div>;
 };

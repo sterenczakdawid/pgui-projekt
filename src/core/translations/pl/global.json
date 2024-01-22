@@ -11,6 +11,7 @@
 	"QualityCat": "Kategoria jakości",
 	"QualityRating": "Ocena jakości",
 	"WorstAspects": "Najgorzej oceniane aspekty",
+	"NoQuality": "Nie wyznaczono jeszcze jakości",
 	"NotSent": "Niewysłane",
 	"NotPaid": "Nieopłacone",
 	"Returns": "Zwroty",
@@ -22,6 +23,7 @@
 	"Sold": "Sprzedane sztuki",
 	"Turnover": "Obrót",
 	"Views": "Unikalne wyświetlenia",
+	"NoOffers": "Nie ma żadnych ofert",
 	"Chart": "Wykres sprzedaży",
 	"Show": "Pokaż",
 	"All": "wszystkie",
@@ -32,5 +34,14 @@
 	"ProductsQuality": "Jakość produktów",
 	"ReturnAbility": "Możliwość zwrotów",
 	"Communication": "Komunikacja",
-	"Price": "Cena"
+	"Price": "Cena",
+	"ChartType": "Typ wykresu",
+	"Measure": "Prezentowana miara",
+	"Range": "Prezentowany zakres",
+	"ChartTurnover": "obrót",
+	"ChartSold": "sprzedane sztuki",
+	"Today": "dziś",
+	"Week": "tydzień",
+	"Month": "miesiąc",
+	"ShowPreviousSeries": "Pokaż poprzednią serię"
 }

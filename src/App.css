@@ -154,15 +154,19 @@
 }
 
 .active__theme__button {
-	background-color: #b2b0ff;
+	/* background-color: #b2b0ff; */
+	background-color: #5a57ff;
 }
 
 .left {
 	border-top-left-radius: 8px;
 	border-bottom-left-radius: 8px;
 }
-
 .right {
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
 }
+
+input[type="checkbox"]:checked {
+	background-color: #5a57ff;
+  }
