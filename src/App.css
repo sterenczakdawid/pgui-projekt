@@ -176,6 +176,7 @@
 .active__theme__button {
 	/* background-color: #b2b0ff; */
 	background-color: #5a57ff;
+	color: #fff;
 }
 
 .left {
@@ -242,6 +243,10 @@ input[type="checkbox"]:checked {
 	.topbar {
 		justify-content: space-between;
 	}
+
+	.show {
+		display: none;
+	}
 }
 
 @media (max-width: 830px) {
@@ -275,10 +280,6 @@ input[type="checkbox"]:checked {
 	}
 
 	.chart {
-		display: none;
-	}
-
-	.show {
 		display: none;
 	}
 }
