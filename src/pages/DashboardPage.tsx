@@ -9,13 +9,13 @@ import {
 
 export const DashboardPage = () => {
 	return (
-		<div className="dashboard">
-			<OrderWidget />
-			<SalesQualityWidget />
-			<OfferRankingWidget />
-			<SalesChartWidget />
-			<CustomerReviewsWidget />
-			<SalesAdviceWidget />
-		</div>
+			<div className="dashboard">
+				<OrderWidget />
+				<SalesQualityWidget />
+				<OfferRankingWidget />
+				<SalesChartWidget />
+				<CustomerReviewsWidget />
+				<SalesAdviceWidget />
+			</div>
 	);
 };

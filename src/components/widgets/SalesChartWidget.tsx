@@ -165,7 +165,7 @@ export const SalesChartWidget = () => {
 		setData(chart.measure == "turnover" ? !isPrevious ? data1 : data3 : !isPrevious ? data2 : data4);
 	}, [chart.labels, chart.measure, lang, isPrevious]);
 	
-	return <div className="card">
+	return <div className="card chart">
 		<h1 className="card__title">{t("Chart")}</h1>
 		<div className="flex">
 			<div className="flex flex-col items-center w-[35%]">

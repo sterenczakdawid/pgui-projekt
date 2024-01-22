@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeLang, changeTheme } from "../core/store/appSettingsSlice";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { BsXLg } from "react-icons/bs";
 
-export const Menu = () => {
+export const Menu = ({ showSidebar, toggleSidebar }) => {
 	const [activeThemeButton, setActiveThemeButton] = useState("light");
 	const [activeLangButton, setActiveLangButton] = useState("en");
 	const theme = useSelector((state: RootState) => state.globalSettings.theme);
@@ -27,11 +28,10 @@ export const Menu = () => {
 		setActiveThemeButton(theme);
 	};
 
-
-	const changeLanguage = (language: 'pl'|'en') => {
+	const changeLanguage = (language: "pl" | "en") => {
 		i18n.changeLanguage(language);
 		setActiveLangButton(language);
-		dispatch(changeLang(language))
+		dispatch(changeLang(language));
 	};
 
 	const updateBodyClass = (newTheme: string) => {
@@ -47,10 +47,17 @@ export const Menu = () => {
 	};
 
 	return (
-		<div className="sidebar flex flex-col items-center bg-[#5a57ff] z-[2]">
-			<h1 className="text-white font-bold text-4xl leading-[60px]">
+		<div
+			className={`sidebar flex flex-col items-center bg-[#5a57ff] z-[2] ${
+				showSidebar ? "show-sidebar" : "hide-sidebar"
+			}`}>
+			<div className="close-icon" onClick={toggleSidebar}>
+				<BsXLg />
+			</div>
+			<h1 className="text-white font-bold text-4xl leading-[70px] text-center w-full">
 				{t("Dashboard")}
 			</h1>
+
 			<div className="flex flex-col items-center justify-center w-full my-5 text-sm">
 				<NavLink
 					to="/"
@@ -113,7 +120,7 @@ export const Menu = () => {
 			</div>
 			{/* <button onClick={() => dispatch(changeTheme())}>Change theme</button> */}
 			<button className="text-white text-center h-[72px] leading-[72px] w-full">
-			{t("Logout")}
+				{t("Logout")}
 			</button>
 		</div>
 	);

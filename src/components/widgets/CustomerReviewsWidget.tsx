@@ -57,7 +57,7 @@ export const CustomerReviewsWidget = () => {
 		<div className="card">
 			<TitleLink title={t("Opinions")} link={"/customer-reviews"} />
 			<div className="flex p-2.5 items-center justify-center">
-				<span className="text-sm m-1 font-bold">{t("Show")}: </span>
+				<span className="show text-sm m-1 font-bold">{t("Show")}: </span>
 				<div>
 					<button
 						className={`left ranking__button h-[25px] p-0 text-[12px] w-[90px] ${theme === "dark" ? activeButton === 'all' ? 'active__ranking__button' : "bg-[#353535]" : activeButton === 'all' ? "active__ranking__button" : ""} transition duration-300 ease-linear`}

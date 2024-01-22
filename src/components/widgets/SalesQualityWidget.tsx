@@ -27,19 +27,26 @@ export const SalesQualityWidget = () => {
 					</div>
 					<hr className="line" />
 					<span className="text-center mb-2">{t("WorstAspects")}:</span>
-					{
-						aspects.map((res, idx)=>(
-							<div className="mt-3 flex justify-between items-center" key={idx}>
-								<span className="w-40">{t(translations[(idx + shopId) % 6])}</span>
-								<div className="outer-bar">
-									<div className="inner-bar"></div>
-								</div>
-								<div className="flex justify-evenly space-x-8">
-									<span className="font-bold text-sm mx-2">{res.rating}</span>
-								</div>						
+					{aspects.map((res, idx) => {
+					// Konwersja stringa na liczbę
+					const ratingValue = parseFloat(res.rating);
+
+					return (
+						<div className="mt-3 flex justify-between items-center" key={idx}>
+							<span className="w-40">
+								{t(translations[(idx + shopId) % 6])}
+							</span>
+							<div className="outer-bar">
+								<div
+									className="inner-bar"
+									style={{ width: `${(ratingValue / 5) * 100}%` }}></div>
 							</div>
-						))
-					}
+							<div className="flex justify-evenly space-x-8">
+								<span className="font-bold text-sm mx-2">{res.rating}</span>
+							</div>
+						</div>
+					);
+				})}
 				</div>
 			</>
 		}

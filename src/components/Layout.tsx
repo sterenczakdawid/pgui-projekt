@@ -2,8 +2,18 @@ import { useLocation, useNavigate, Link, Outlet } from "react-router-dom";
 import { fakeAuthProvider } from "../core/auth";
 import { DashboardPage } from "../pages";
 import { Menu, TopBar } from "../components";
+import { useState } from "react";
 
 export const Layout = () => {
+	const [showSidebar, setShowSidebar] = useState(true);
+
+	const showSidebarF = () => {
+		setShowSidebar(true);
+	}
+
+	const hideSidebarF = () => {
+		setShowSidebar(false);
+	}
 	// const location = useLocation();
 	// const navigate = useNavigate();
 
@@ -15,8 +25,8 @@ export const Layout = () => {
 	// };
 	return (
 		<>
-			<TopBar />
-			<Menu />
+			<TopBar toggleSidebar={showSidebarF}/>
+			<Menu showSidebar={showSidebar} toggleSidebar={ hideSidebarF}/>
 			<DashboardPage />
 
 			{/* <div>
