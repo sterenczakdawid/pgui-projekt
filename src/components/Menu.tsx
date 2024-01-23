@@ -42,8 +42,8 @@ export const Menu = ({ showSidebar, toggleSidebar }) => {
 	};
 
 	const handleThemeChange = (theme: "light" | "dark") => {
-		dispatch(changeTheme(theme));
 		setActiveThemeButton(theme);
+		dispatch(changeTheme(theme));
 	};
 
 	const changeLanguage = (language: "pl" | "en") => {
@@ -133,12 +133,12 @@ export const Menu = ({ showSidebar, toggleSidebar }) => {
 			</div>
 			<div className="absolute bottom-0 right-[10%] text-[30px]">
 				<button
-					className={`left ranking__button border-white  ${theme === "dark" ? activeLangButton === 'en' ? 'active__theme__button' : "text-[#353535]" : activeLangButton === 'pl' ? 'active__theme__button' : ""}`}
+					className={`left ranking__button border-white  ${theme === "dark" ? activeLangButton === 'en' ? 'active__theme__button' : "text-[#353535]" : activeLangButton === 'pl' ? '' : "active__theme__button"}`}
 					onClick={() => changeLanguage("en")}>
 					<span className="block w-[20px] h-[22px]">EN</span>
 				</button>
 				<button
-					className={`right ranking__button border-white ${theme === "dark" ? activeLangButton === 'pl' ? 'active__theme__button' : "text-[#353535]" : activeLangButton === 'en' ? 'active__theme__button' : ""}`}
+					className={`right ranking__button border-white ${theme === "dark" ? activeLangButton === 'pl' ? 'active__theme__button' : "text-[#353535]" : activeLangButton === 'en' ? '' : "active__theme__button"}`}
 					onClick={() => changeLanguage("pl")}>
 					<span className="block w-[20px] h-[22px]">PL</span>
 				</button>

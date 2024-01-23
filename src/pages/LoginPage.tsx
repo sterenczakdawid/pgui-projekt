@@ -37,6 +37,8 @@ export function LoginPage() {
 	return (
 		<div className="w-[50vw] ml-[25vw] mr-[25vw] mt-[25vh]">
 			Wprowadź dane logowania:
+			<br />
+			<br />
 			<form className="flex flex-col gap-[20px]" onSubmit={handleSubmit}>
 				Nazwa użytkownika:{" "}
 				<input
