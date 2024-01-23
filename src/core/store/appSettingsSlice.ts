@@ -56,6 +56,9 @@ export const appSettingsSlice = createSlice(
 			logIn: (state, action: PayloadAction<number>) => {
 				state.user = users[action.payload]
 			},
+			logOut: (state) => {
+				state.user = users[0];
+			},
 			changeChartRange: (state, action: PayloadAction<string>) =>{
 				state.chart.range = action.payload;
 				changeChartLabels(action.payload)
@@ -73,6 +76,6 @@ export const appSettingsSlice = createSlice(
 	},
 );
 
-export const { changeLang, changeTheme, addShop, changeShop, logIn, changeChartIsPrevious, changeChartMeasure, changeChartRange, changeChartLabels } = appSettingsSlice.actions;
+export const { changeLang, changeTheme, addShop, changeShop, logIn, changeChartIsPrevious, changeChartMeasure, changeChartRange, changeChartLabels, logOut } = appSettingsSlice.actions;
 
 export default appSettingsSlice.reducer;

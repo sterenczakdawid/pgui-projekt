@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { RootState } from "../core/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLang, changeTheme } from "../core/store/appSettingsSlice";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BsXLg } from "react-icons/bs";
 import { BsCardChecklist } from "react-icons/bs";
@@ -11,6 +11,8 @@ import { BsHouse } from "react-icons/bs";
 import { BsBookmarkStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import { BsLock } from "react-icons/bs";
+import { logOut } from "../core/store/appSettingsSlice";
+import { fakeAuthProvider } from "../core/auth";
 
 export const Menu = ({ showSidebar, toggleSidebar }) => {
 	const [activeThemeButton, setActiveThemeButton] = useState("light");
@@ -28,6 +30,16 @@ export const Menu = ({ showSidebar, toggleSidebar }) => {
 		}
 		updateBodyClass(theme);
 	}, [theme]);
+
+	const navigate = useNavigate();
+
+	const onLogout = (event: { preventDefault: () => void }) => {
+		event.preventDefault();
+		fakeAuthProvider.signout(() => {
+			navigate("/login");
+			dispatch(logOut());
+		});
+	};
 
 	const handleThemeChange = (theme: "light" | "dark") => {
 		dispatch(changeTheme(theme));
@@ -97,7 +109,9 @@ export const Menu = ({ showSidebar, toggleSidebar }) => {
 					{t("Advice")}
 				</NavLink>
 			</div>
-			<button className="text-white h-[72px] leading-[72px] w-full flex items-center justify-center absolute bottom-[60px]">
+			<button className="text-white h-[72px] leading-[72px] w-full flex items-center justify-center absolute bottom-[60px]"
+				onClick={onLogout}
+			>
 				<BsLock className="text-xl mx-2" />
 				{t("Logout")}
 			</button>

@@ -1,4 +1,5 @@
 export const fakeAuthProvider = {
+
 	isAuthenticated: false,
 	username: null as null | string,
 	signin: (
@@ -13,7 +14,7 @@ export const fakeAuthProvider = {
 			fakeAuthProvider.isAuthenticated = true;
 			fakeAuthProvider.username = username;
 			setTimeout(() => {
-				callback("success");
+				callback(username);
 			}, 100);
 		} else {
 			setTimeout(() => {

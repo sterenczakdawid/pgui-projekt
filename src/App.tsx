@@ -20,59 +20,59 @@ export default function App() {
 				<Route
 					path="/"
 					element={
-						// <ProtectedPath>
+						<ProtectedPath>
 						<Layout />
-						// </ProtectedPath>
+						</ProtectedPath>
 					}
 				/>
 				<Route
 					path="/orders"
 					element={
-						// <ProtectedPath>
+						<ProtectedPath>
 						<OrderPage />
-						// </ProtectedPath>
+						</ProtectedPath>
 					}
 				/>
 				<Route
 					path="/customer-reviews"
 					element={
-						// <ProtectedPath>
+						<ProtectedPath>
 						<CustomerReviewsPage />
-						// </ProtectedPath>
+						</ProtectedPath>
 					}
 				/>
 				<Route
 					path="/sales-advice"
 					element={
-						// <ProtectedPath>
+						<ProtectedPath>
 						<SalesAdvicePage />
-						// </ProtectedPath>
+						</ProtectedPath>
 					}
 				/>
 				<Route
 					path="/sales-quality"
 					element={
-						// <ProtectedPath>
+						<ProtectedPath>
 						<SalesQualityPage />
-						// </ProtectedPath>
+						</ProtectedPath>
 					}
 				/>
-				{/* <Route path="/login" element={<LoginPage />} /> */}
+				<Route path="/login" element={<LoginPage />} />
 			</Routes>
 		</BrowserRouter>
 		</I18nextProvider>
 	);
 }
 
-// interface ProtectedPathProps {
-// 	children: React.ReactNode;
-// }
+interface ProtectedPathProps {
+	children: React.ReactNode;
+}
 
-// function ProtectedPath({ children }: ProtectedPathProps) {
-// 	const location = useLocation();
-// 	return fakeAuthProvider.isAuthenticated ? (
-// 		children
-// 	) : (
-// 		<Navigate to="/login" state={{ from: location.pathname }} />
-// 	);
-// }
+function ProtectedPath({ children }: ProtectedPathProps) {
+	const location = useLocation();
+	return fakeAuthProvider.isAuthenticated ? (
+		children
+	) : (
+		<Navigate to="/login" state={{ from: location.pathname }} />
+	);
+}
